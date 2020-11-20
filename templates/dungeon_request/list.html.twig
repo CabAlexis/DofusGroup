@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="d-flex flex-row justify-content-between">
+    <h2>Toutes les demandes de groupe :</h2>
+</div>
+
+<form class="form-inline">
+  <div class="form-group mb-2 mr-3">
+    <input type="text" class="form-control" name="search" placeholder="Rechercher par donjon" value="{{ app.request.query.get('search') }}">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Rechercher</button>
+</form>
+
+<ul class="list-group">
+  <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="text-center">Donjon</th>
+      <th scope="col" class="text-center">Date</th>
+      <th scope="col" class="text-center">Heure</th>
+      <th scope="col" class="text-center">Nombre de participants</th>
+    </tr>
+  </thead>
+  <tbody>
+{% if dungeonSearch is not null %}
+  {% for dungeonRequest in dungeonSearch %}
+    <tr>
+      <td class ="text-center">{{ dungeonRequest.dungeon.name }}</td>
+      <td class ="text-center">{{ dungeonRequest.date|date('d/m/y') }}</td>
+      <td class ="text-center">{{ dungeonRequest.time|date('H:i') }}</td>
+      <td class ="text-center">{{ dungeonRequest.numberParticipates }}</td>
+    </tr>
+  {% endfor %}
+{% else %}
+  {% for dungeonRequest in dungeonRequests %}
+    <tr>
+      <td class ="text-center">{{ dungeonRequest.dungeon.name }}</td>
+      <td class ="text-center">{{ dungeonRequest.date|date('d/m/y') }}</td>
+      <td class ="text-center">{{ dungeonRequest.time|date('H:i') }}</td>
+      <td class ="text-center">{{ dungeonRequest.numberParticipates }}</td>
+    </tr>
+  {% endfor %}
+{% endif %}
+  </tbody>
+</table>     
+
+
+
+{% endblock %}

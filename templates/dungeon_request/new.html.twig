@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ form_start(dungeonRequestForm) }}
+{{ form_row(dungeonRequestForm.numberParticipates) }}
+{{ form_row(dungeonRequestForm.date) }}
+{{ form_row(dungeonRequestForm.time) }}
+{{ form_row(dungeonRequestForm.dungeon) }}
+{# {{ form_row(dungeonRequestForm.server) }} #}
+<label for="">Personnage : </label>
+<select name="character" id="character">
+  {% for  character in characters %}
+  <option value="{{ character.id }}">{{ character.name }} - {{ character.race.name }}</option>
+  {% endfor %}
+</select>
+
+<label for="">Level :</label>
+
+<input type="number" id="level" name="level"
+       min="0" max="200">
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Valider ma demande</button>
+{{ form_end(dungeonRequestForm) }}
+{% endblock %}
