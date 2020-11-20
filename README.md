@@ -13,7 +13,6 @@ Avec DofusGroup vous pourrez créer des demandes de donjons avec plusieurs crite
 - L'heure et le jour, on se connecte et on va farm, plus le temps de prendre racine au zaap ! :joy:
 - Les éléments et les classes souhaités, faut opti tout ca quand meme ! :stuck_out_tongue_winking_eye:
 - Et surtout que quel donjon on part ?
-*
 
 Les utilisateurs pourront également rejoindre les demandes crées, cela avertira tous les joueurs du groupe !
 
