@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationType;
+use App\Repository\CharacterDungeonRequestUserRepository;
+use App\Repository\CharacterRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +43,21 @@ class UserController extends AbstractController
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route ("/profil", name="profil")
+     */
+    public function profil(CharacterDungeonRequestUserRepository $repo)
+    {
+        $user = $this->getUser();
+        $request = $repo->findAll();
+
+        return $this->render('user/profil.html.twig',
+    [
+        'user' => $user,
+        'request' => $request
+    ]);
     }
 }
 

@@ -6,11 +6,12 @@
 <main role="main" class="flex-shrink-0">
   <div class="container mt-5">
     <div class="row">
-      <div class="col-sm">
+      <div class="col-sm text-center">
         <p>Dofus Group est un outil qui va vous permettre de trouver du monde pour créer groupe pour faire un donjon sur Dofus Retro Monocompte.</p>
       </div>
     </div>
     <div class="row">
+      {% if app.user %}
       <div class="col-md">
         <div class="card">
           <div class="card-body text-center">
@@ -20,6 +21,21 @@
         </div>
         </div>
       </div>
+      {% else %}
+      <div class="col-md">
+        <div class="card">
+          <div class="card-body text-center">
+          <p>Veuillez vous inscrire ou vous connecter pour ajouter une demande</p>
+          <a href ="{{ path('registration') }}">
+            S'inscrire
+          </a>
+          <a href ="{{ path('login') }}">
+            Se connecter
+          </a>
+        </div>
+        </div>
+      </div>
+      {% endif %}
       <div class="col-md">
         <div class="card">
           <div class="card-body text-center">

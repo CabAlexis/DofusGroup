@@ -23,7 +23,7 @@ class CharacterRepository extends ServiceEntityRepository
     //  * @return Character[] Returns an array of Character objects
     //  */
     /*
-    public function findByExampleField($value)
+    public function findByUser($user)
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
@@ -35,6 +35,7 @@ class CharacterRepository extends ServiceEntityRepository
         ;
     }
     */
+    
 
     /*
     public function findOneBySomeField($value): ?Character
