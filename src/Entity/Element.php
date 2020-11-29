@@ -25,7 +25,7 @@ class Element
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Character::class, inversedBy="elements")
+     * @ORM\ManyToMany(targetEntity=Character::class, inversedBy="elements", cascade={"persist"})
      */
     private $characters;
 
