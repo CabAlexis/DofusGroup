@@ -25,7 +25,7 @@ class Server
     private $Name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="server", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="server", orphanRemoval=true, cascade={"persist"})
      */
     private $characters;
 

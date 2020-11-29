@@ -37,7 +37,7 @@ class Character
     private $race;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Element::class, mappedBy="characters")
+     * @ORM\ManyToMany(targetEntity=Element::class, mappedBy="characters", cascade={"persist"})
      */
     private $elements;
 

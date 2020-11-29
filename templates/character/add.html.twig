@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ form_start(addCharacterForm) }}
+{{ form_row(addCharacterForm) }}
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Valider ma demande</button>
+  {{ form_end(addCharacterForm) }}
+
+{% endblock %}

@@ -5,11 +5,16 @@
 		Vos informations :
 	</h3>
 	<ul class="list-groutd">
-		<li class="list-groutd-item">Username : {{ user.username }}</li>
-		<li class="list-groutd-item">Nom de comtdte Ankama : {{ user.ankamaAccount }}</li>
-		<li class="list-groutd-item">Email : {{ user.email }}</li>
-		<li class="list-groutd-item">Nom : {{ user.lastname }}</li>
-		<li class="list-groutd-item">Prénom : {{ user.firstname }}</li>
+		<li class="list-groutd-item">Username :
+			{{ user.username }}</li>
+		<li class="list-groutd-item">Nom de comtdte Ankama :
+			{{ user.ankamaAccount }}</li>
+		<li class="list-groutd-item">Email :
+			{{ user.email }}</li>
+		<li class="list-groutd-item">Nom :
+			{{ user.lastname }}</li>
+		<li class="list-groutd-item">Prénom :
+			{{ user.firstname }}</li>
 	</ul>
 	<h4>Vos personnages :
 	</h4>
@@ -21,12 +26,16 @@
 			</tr>
 		</thead>
 		<tbody>
+
 			{% for character in user.characters %}
-				<tr>
-					<td class="text-center">{{ character.name }}</td>
-					<td class="text-center">{{ character.race.name }}</td>
-				</tr>
+				{% if app.user.id == user.id %}
+					<tr>
+						<td class="text-center">{{ character.name }}</td>
+						<td class="text-center">{{ character.race.name }}</td>
+					</tr>
+				{% endif %}
 			{% endfor %}
+
 		</tbody>
 	</table>
 	<table class="table">
@@ -43,17 +52,20 @@
 			</tr>
 		</thead>
 		<tbody>
+
 			{% for request in request %}
-				<tr>
-					<td class="text-center">{{ request.user.username }}</td>
-					<td class="text-center">{{ request.ownerscharacter.name }}</td>
-					<td class="text-center">{{ request.ownerscharacter.race.name }}</td>
-					<td class="text-center">{{ request.level }}</td>
-					<td class="text-center">{{ request.dungeonrequest.numberparticipates }}</td>
-					<td class="text-center">{{ request.dungeonrequest.date|date("m/d/Y") }}</td>
-					<td class="text-center">{{ request.dungeonrequest.time|date("H:i") }}</td>
-					<td class="text-center">{{ request.dungeonrequest.dungeon.name}}</td>
-				</tr>
+				{% if app.user.id == request.user.id %}
+					<tr>
+						<td class="text-center">{{ request.user.username }}</td>
+						<td class="text-center">{{ request.ownerscharacter.name }}</td>
+						<td class="text-center">{{ request.ownerscharacter.race.name }}</td>
+						<td class="text-center">{{ request.level }}</td>
+						<td class="text-center">{{ request.dungeonrequest.numberparticipates }}</td>
+						<td class="text-center">{{ request.dungeonrequest.date|date("m/d/Y") }}</td>
+						<td class="text-center">{{ request.dungeonrequest.time|date("H:i") }}</td>
+						<td class="text-center">{{ request.dungeonrequest.dungeon.name}}</td>
+					</tr>
+				{% endif %}
 			{% endfor %}
 		</tbody>
 	</table>
