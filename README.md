@@ -21,4 +21,4 @@ Les utilisateurs pourront également rejoindre les demandes crées, cela avertir
 Pour l'instant uniquement du symfony, un projet tres ambitieux pour mes petites mains de baby dev ! :sweat_smile:
 Mais super interessant et enrichissant ! :heart-eyes:
 
-Surement du React pour le front dans un futur plus ou moins proche ! :blush:
+Surement du React pour le front dans un futur plus ou moins proche !
