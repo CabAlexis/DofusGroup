@@ -26,9 +26,9 @@ class Character
     private $name;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
-    private $levelMax;
+    private $level;
 
     /**
      * @ORM\ManyToOne(targetEntity=Race::class, inversedBy="characters")
@@ -80,14 +80,14 @@ class Character
         return $this;
     }
 
-    public function getLevelMax(): ?bool
+    public function getLevel(): int
     {
-        return $this->levelMax;
+        return $this->level;
     }
 
-    public function setLevelMax(bool $levelMax): self
+    public function setLevel(int $level): self
     {
-        $this->levelMax = $levelMax;
+        $this->level = $level;
 
         return $this;
     }
