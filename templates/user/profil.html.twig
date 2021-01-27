@@ -23,6 +23,7 @@
 		<thead>
 			<tr>
 				<th scotde="col" class="text-center">Nom</th>
+				<th scotde="col" class="text-center">Level</th>
 				<th scotde="col" class="text-center">Classe</th>
 			</tr>
 		</thead>
@@ -32,6 +33,7 @@
 				{% if app.user.id == user.id %}
 					<tr>
 						<td class="text-center">{{ character.name }}</td>
+						<td class="text-center">{{ character.level }}</td>
 						<td class="text-center">{{ character.race.name }}</td>
 					</tr>
 				{% endif %}

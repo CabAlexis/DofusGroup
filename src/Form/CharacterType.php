@@ -8,13 +8,11 @@ use App\Entity\Race;
 use App\Entity\Server;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class CharacterType extends AbstractType
 {
@@ -32,11 +30,10 @@ class CharacterType extends AbstractType
             ]
         )
         ->add(
-            'levelMax',
-            ChoiceType::class, [
-                'choices' => [
-                    'Yes' => 1,
-                    'No' => 0
+            'level',
+            IntegerType::class, [
+                'attr'=> [
+                    'placeholder' => 'Level'
                 ]
             ]
         )

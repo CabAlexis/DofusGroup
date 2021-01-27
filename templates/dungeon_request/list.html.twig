@@ -12,7 +12,6 @@
   </div>
   <button type="submit" class="btn btn-primary mb-2">Rechercher</button>
 </form>
-
 <ul class="list-group">
   <table class="table">
   <thead class="thead-light">
@@ -26,12 +25,14 @@
   <tbody>
 {% if dungeonSearch is not null %}
   {% for dungeonRequest in dungeonSearch %}
+  {# {% if app.user.id == user.id %} NE PAS AFFICHER LES DEMANDES QUE LUTILISATEUR CONNECTE A CREE#} 
     <tr>
       <td class ="text-center">{{ dungeonRequest.dungeon.name }}</td>
       <td class ="text-center">{{ dungeonRequest.date|date('d/m/y') }}</td>
       <td class ="text-center">{{ dungeonRequest.time|date('H:i') }}</td>
       <td class ="text-center">{{ dungeonRequest.numberParticipates }}</td>
     </tr>
+    {# {% endif %} #}
   {% endfor %}
 {% else %}
   {% for dungeonRequest in dungeonRequests %}

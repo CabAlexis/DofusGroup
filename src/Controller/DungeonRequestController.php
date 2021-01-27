@@ -37,7 +37,7 @@ class DungeonRequestController extends AbstractController
             $characterDungeonRequestUser->setUser($this->getUser());
             $characterDungeonRequestUser->setCreator(1);
             $characterDungeonRequestUser->setDungeonRequest($dungeonRequest);
-            $characterDungeonRequestUser->setLevel($request->get('level'));
+            $characterDungeonRequestUser->setLevel($charactersRepository -> find($characterId)->getLevel());
             $characterDungeonRequestUser->setOwnersCharacter($charactersRepository -> find($characterId));
             $manager->persist($dungeonRequest);
             $manager->persist($characterDungeonRequestUser);
@@ -61,13 +61,15 @@ class DungeonRequestController extends AbstractController
     public function listDungeonRequest(DungeonRequestRepository $dungeonRequestRepository, Request $request)
     {
         $dungeonRequestList = $dungeonRequestRepository->findAll();
+        $user = $this->getUser();
 
         $search = $request->query->get('search');
         $dungeonRequestByDungeon = $dungeonRequestRepository->findByDungeonName($search);
         // dd($dungeonRequestList);
         return $this->render('dungeon_request/list.html.twig', [
             'dungeonRequests' => $dungeonRequestList,
-            'dungeonSearch' => $dungeonRequestByDungeon
+            'dungeonSearch' => $dungeonRequestByDungeon,
+            'user'=> $user
         ]);
     }
 }

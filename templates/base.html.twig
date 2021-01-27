@@ -24,6 +24,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
                         </li>
+                        {% if app.user %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('list_dungeon_request') }}">Trouver un groupe</a>
                         </li>
@@ -31,7 +32,6 @@
                             <a class="nav-link" href="{{ path('create_dungeon_request') }}">Ajouter une demande</a>
                         </li>
                         <li class="nav-item">
-                        {% if app.user %}
                             <a class="nav-link" href="{{ path('logout') }}">Deconnexion</a>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('profil') }}">Profil</a>
